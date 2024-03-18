@@ -8,7 +8,7 @@ import { defineCustomElements } from 'stencil-library/loader';
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: () => defineCustomElements(window),
+      useFactory: () => defineCustomElements,
       multi: true
     },
   ],

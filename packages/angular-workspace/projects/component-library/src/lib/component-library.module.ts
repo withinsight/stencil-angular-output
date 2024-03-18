@@ -1,16 +1,16 @@
-import { NgModule } from '@angular/core';
-import { ComponentLibraryComponent } from './component-library.component';
-
-
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { DIRECTIVES } from './stencil-generated';
+import { defineCustomElements } from 'stencil-library/loader';
 
 @NgModule({
-  declarations: [
-    ComponentLibraryComponent
+  declarations: [DIRECTIVES],
+  exports: [DIRECTIVES],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => defineCustomElements(window),
+      multi: true
+    },
   ],
-  imports: [
-  ],
-  exports: [
-    ComponentLibraryComponent
-  ]
 })
 export class ComponentLibraryModule { }
